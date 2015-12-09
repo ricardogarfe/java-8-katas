@@ -1,6 +1,7 @@
 package org.ricardogarfe.katas;
 
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -18,13 +19,16 @@ public class FizzBuzz {
     Predicate<Integer> fizzFilter = (value) -> (value % FIZZ_VALUE == ZERO_VALUE);
     Predicate<Integer> buzzFilter = (value) -> (value % BUZZ_VALUE == ZERO_VALUE);
 
+
+    Consumer<Object> printResultConsumer = System.out::println;
+
     public FizzBuzz () {
         initializeArrayFromMaxValue(DEFAULT_MAX_VALUE);
     }
 
     public void transformValues() {
         List<String> fizzBuzzResult = counterList.stream().map( this::retrieveFizzBuzz ).collect( Collectors.toList() );
-        fizzBuzzResult.forEach((value) -> System.out.println(value));
+        fizzBuzzResult.forEach(printResultConsumer);
     }
 
     /**
