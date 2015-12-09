@@ -2,10 +2,16 @@ package org.ricardogarfe.katas;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
+import java.util.Arrays;
+import java.util.Collection;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+@RunWith(Parameterized.class)
 public class FizzBuzzTest {
 
     static FizzBuzz fizzBuzz;
@@ -15,6 +21,19 @@ public class FizzBuzzTest {
     private final static String BUZZ_RESULT = "Buzz";
     private final static String FIZZ_BUZZ_RESULT = "FizzBuzz";
 
+    @Parameterized.Parameters
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[][] {
+                { 1, ONE_RESULT }, { 3, FIZZ_RESULT }, { 5, BUZZ_RESULT }, { 15, FIZZ_BUZZ_RESULT }
+        });
+    }
+
+    @Parameterized.Parameter // first data value (0) is default
+    public /* NOT private */ int fizzBuzzInput;
+
+    @Parameterized.Parameter(value = 1)
+    public /* NOT private */ String fizzBuzzExpected;
+
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
         fizzBuzz = new FizzBuzz();
@@ -23,19 +42,8 @@ public class FizzBuzzTest {
     @Test
     public void testRetrieveFizzBuzz() {
 
-        String fizzBuzzResult = "";
-
-        fizzBuzzResult = fizzBuzz.retrieveFizzBuzz(1);
-        assertEquals("Result is not 1",ONE_RESULT, fizzBuzzResult);
-
-        fizzBuzzResult = fizzBuzz.retrieveFizzBuzz(3);
-        assertEquals("Result is not Fizz",FIZZ_RESULT, fizzBuzzResult);
-
-        fizzBuzzResult = fizzBuzz.retrieveFizzBuzz(5);
-        assertEquals("Result is not Buzz",BUZZ_RESULT, fizzBuzzResult);
-
-        fizzBuzzResult = fizzBuzz.retrieveFizzBuzz(15);
-        assertEquals("Result is not FizzBuzz", FIZZ_BUZZ_RESULT, fizzBuzzResult);
+        String fizzBuzzResult = fizzBuzz.retrieveFizzBuzz(fizzBuzzInput);
+        assertEquals("Result is not correct", fizzBuzzExpected, fizzBuzzResult);
     }
 
 }
