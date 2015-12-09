@@ -42,9 +42,7 @@ public class FizzBuzzTest {
     @Test
     public void testRetrieveFizzBuzz() {
 
-        String fizzBuzzResult = "";
-
-        fizzBuzzResult = fizzBuzz.retrieveFizzBuzz(fizzBuzzInput);
+        String fizzBuzzResult = fizzBuzz.retrieveFizzBuzz(fizzBuzzInput);
         assertEquals("Result is not correct", fizzBuzzExpected, fizzBuzzResult);
     }
 
