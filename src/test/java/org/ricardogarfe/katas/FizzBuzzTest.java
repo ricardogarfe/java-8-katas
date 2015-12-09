@@ -23,8 +23,12 @@ public class FizzBuzzTest {
 
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
+
         return Arrays.asList(new Object[][] {
-                { 1, ONE_RESULT }, { 3, FIZZ_RESULT }, { 5, BUZZ_RESULT }, { 15, FIZZ_BUZZ_RESULT }
+                { 1, ONE_RESULT },
+                { 3, FIZZ_RESULT },
+                { 5, BUZZ_RESULT },
+                { 15, FIZZ_BUZZ_RESULT }
         });
     }
 
