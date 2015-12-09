@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
 public class FizzBuzzTest {
@@ -41,8 +42,18 @@ public class FizzBuzzTest {
     @Test
     public void testRetrieveFizzBuzz() {
 
-        String fizzBuzzResult = fizzBuzz.retrieveFizzBuzz(fizzBuzzInput);
+        String fizzBuzzResult = "";
+
+        fizzBuzzResult = fizzBuzz.retrieveFizzBuzz(fizzBuzzInput);
         assertEquals("Result is not correct", fizzBuzzExpected, fizzBuzzResult);
     }
 
+    @Test
+    public void testShowCountDown() {
+
+        fizzBuzz.transformValues();
+        assertTrue("That's true not false",true);
+    }
+
 }
+

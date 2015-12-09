@@ -23,7 +23,7 @@ public class FizzBuzz {
     }
 
     public void transformValues() {
-        List<String> fizzBuzzResult = counterList.stream().map( value -> retrieveFizzBuzz(value)).collect( Collectors.toList() );
+        List<String> fizzBuzzResult = counterList.stream().map( this::retrieveFizzBuzz ).collect( Collectors.toList() );
         fizzBuzzResult.forEach((value) -> System.out.println(value));
     }
 
@@ -36,10 +36,10 @@ public class FizzBuzz {
 
         String result = "";
 
-        if (value % FIZZ_VALUE == 0) {
+        if (fizzFilter.test(value)) {
             result += "Fizz";
         }
-        if (value % BUZZ_VALUE == 0) {
+        if (buzzFilter.test(value)) {
             result += "Buzz";
         }
         return result.length() > 0 ? result : Integer.toString(value);
