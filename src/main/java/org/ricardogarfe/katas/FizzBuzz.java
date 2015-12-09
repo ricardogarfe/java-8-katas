@@ -52,6 +52,6 @@ public class FizzBuzz {
     public void initializeArrayFromMaxValue(int maxCount) {
 
         counterList = new ArrayList<>();
-        IntStream.range(1,maxCount+1).forEach(val -> counterList.add(val));
+        IntStream.range(1,maxCount+1).forEach(counterList::add);
     }
 }
