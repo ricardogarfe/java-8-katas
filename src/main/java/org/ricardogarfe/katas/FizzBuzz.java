@@ -1,6 +1,7 @@
 package org.ricardogarfe.katas;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -16,23 +17,24 @@ public class FizzBuzz {
 
     private List<Integer> counterList;
 
-    Predicate<Integer> fizzFilter = (value) -> (value % FIZZ_VALUE == ZERO_VALUE);
-    Predicate<Integer> buzzFilter = (value) -> (value % BUZZ_VALUE == ZERO_VALUE);
+    Predicate<Integer> fizzFilter = value -> (value % FIZZ_VALUE == ZERO_VALUE);
+    Predicate<Integer> buzzFilter = value -> (value % BUZZ_VALUE == ZERO_VALUE);
 
 
     Consumer<Object> printResultConsumer = System.out::println;
 
-    public FizzBuzz () {
+    public FizzBuzz() {
         initializeArrayFromMaxValue(DEFAULT_MAX_VALUE);
     }
 
     public void transformValues() {
-        List<String> fizzBuzzResult = counterList.stream().map( this::retrieveFizzBuzz ).collect( Collectors.toList() );
+        List<String> fizzBuzzResult = counterList.stream().map(this::retrieveFizzBuzz).collect(Collectors.toList());
         fizzBuzzResult.forEach(printResultConsumer);
     }
 
     /**
      * Non functional result
+     *
      * @param value
      * @return
      */
@@ -52,6 +54,6 @@ public class FizzBuzz {
     public void initializeArrayFromMaxValue(int maxCount) {
 
         counterList = new ArrayList<>();
-        IntStream.range(1,maxCount+1).forEach(counterList::add);
+        IntStream.range(1, maxCount + 1).forEach(counterList::add);
     }
 }
