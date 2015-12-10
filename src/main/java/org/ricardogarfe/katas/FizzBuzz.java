@@ -9,16 +9,15 @@ import java.util.stream.IntStream;
 
 public class FizzBuzz {
 
-    private final static int FIZZ_VALUE = 3;
-    private final static int BUZZ_VALUE = 5;
-    private final static int ZERO_VALUE = 0;
-
-    private final static int DEFAULT_MAX_VALUE = 100;
+    private static final int FIZZ_VALUE = 3;
+    private static final int BUZZ_VALUE = 5;
+    private static final int ZERO_VALUE = 0;
+    private static final int DEFAULT_MAX_VALUE = 100;
 
     private List<Integer> counterList;
 
-    Predicate<Integer> fizzFilter = value -> (value % FIZZ_VALUE == ZERO_VALUE);
-    Predicate<Integer> buzzFilter = value -> (value % BUZZ_VALUE == ZERO_VALUE);
+    Predicate<Integer> fizzFilter = value -> value % FIZZ_VALUE == ZERO_VALUE;
+    Predicate<Integer> buzzFilter = value -> value % BUZZ_VALUE == ZERO_VALUE;
 
 
     Consumer<Object> printResultConsumer = System.out::println;
