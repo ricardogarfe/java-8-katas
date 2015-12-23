@@ -7,6 +7,7 @@ import org.junit.runners.Parameterized;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -14,7 +15,7 @@ import static org.junit.Assert.assertTrue;
 @RunWith(Parameterized.class)
 public class FizzBuzzTest {
 
-    private final static String ONE_RESULT = "1";
+    private final static String NUMERIC_RESULT = "1";
     private final static String FIZZ_RESULT = "Fizz";
     private final static String BUZZ_RESULT = "Buzz";
     private final static String FIZZ_BUZZ_RESULT = "FizzBuzz";
@@ -29,7 +30,7 @@ public class FizzBuzzTest {
     public static Collection<Object[]> data() {
 
         return Arrays.asList(new Object[][]{
-                {1, ONE_RESULT},
+                {1, NUMERIC_RESULT},
                 {3, FIZZ_RESULT},
                 {5, BUZZ_RESULT},
                 {15, FIZZ_BUZZ_RESULT}
