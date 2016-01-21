@@ -13,8 +13,16 @@ public class StringCalculatorTest {
     @Test
     public void testSimpleStringCalculator() throws Exception {
 
-        String[] stringNumbers = {"", "2"};
+        String stringNumbers = "";
         Assert.assertTrue("Add method fail to calculate sum.",
-                2 == stringCalculator.simpleStringCalculator(stringNumbers));
+                0 == stringCalculator.simpleStringCalculator(stringNumbers));
+
+        stringNumbers = "1";
+        Assert.assertTrue("Add method fail to calculate sum.",
+                1 == stringCalculator.simpleStringCalculator(stringNumbers));
+
+        stringNumbers = "1,2";
+        Assert.assertTrue("Add method fail to calculate sum.",
+                3 == stringCalculator.simpleStringCalculator(stringNumbers));
     }
 }
