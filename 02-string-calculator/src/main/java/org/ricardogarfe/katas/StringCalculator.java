@@ -14,9 +14,7 @@ public class StringCalculator {
 
         List<String> strings = retrieveStringArray(stringNumbers);
 
-        return strings.stream().filter(isNotEmpty).map(Integer::valueOf).reduce(
-                0,
-                (a, b) -> a + b);
+        return strings.stream().filter(isNotEmpty).mapToInt(Integer::valueOf).sum();
     }
 
     public List<String> retrieveStringArray(String stringNumbers) {
