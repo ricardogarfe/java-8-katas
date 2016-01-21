@@ -12,10 +12,14 @@ public class StringCalculator {
 
     public Integer simpleStringCalculator(String stringNumbers) {
 
-        List<String> strings = Arrays.asList(stringNumbers.split(","));
+        List<String> strings = retrieveStringArray(stringNumbers);
 
         return strings.stream().filter(isNotEmpty).map(Integer::valueOf).reduce(
                 0,
                 (a, b) -> a + b);
+    }
+
+    public List<String> retrieveStringArray(String stringNumbers) {
+        return Arrays.asList(stringNumbers.split(","));
     }
 }
